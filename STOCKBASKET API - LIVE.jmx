@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="STOCKBASKET API - LIVE" enabled="true">
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Http URL/API Test" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">1</intProp>
+        </elementProp>
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <longProp name="ThreadGroup.duration">0</longProp>
+        <longProp name="ThreadGroup.delay">0</longProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+        </CookieManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="My Investments" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/Investment/myInvestments</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="My Investments" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+              <elementProp name="X-App-Id" elementType="Header">
+                <stringProp name="Header.name">X-App-Id</stringProp>
+                <stringProp name="Header.value">${SBB_APP_ID}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetToken APi" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/api/GetToken</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="GetToken APi" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add &amp; Remove FCM Token" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="client_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">client_id</stringProp>
+                <stringProp name="Argument.value">DP17682</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="user_type" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">user_type</stringProp>
+                <stringProp name="Argument.value">stockbasket</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="device_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">device_id</stringProp>
+                <stringProp name="Argument.value">e-qVwZY3SpKjhcrMth2m_3:APA91bFtxdbISEP8t4-HNzP4dyIqZZhW0gx3EhclLC-gG1yXtK1RX3LY4zUmMLQJsA6ktc6D8Vozx0BtOKIYvWLs6LBLh1pPBfeHNjk6Pi2oLXWn3cOt9J6xXzODdnmo7GY7HpbbJM4e</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="type" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">type</stringProp>
+                <stringProp name="Argument.value">android</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="action" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">action</stringProp>
+                <stringProp name="Argument.value">add</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/API/UserNotification/addTokenDetail</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Add &amp; Remove FCM Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Fetch Notification" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="client_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">client_id</stringProp>
+                <stringProp name="Argument.value">RP1001</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/API/StockBasket/fetchNotifications</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Fetch Notification" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Target Check API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="basket_name" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basket_name</stringProp>
+                <stringProp name="Argument.value">Digital India</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="basket_version" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basket_version</stringProp>
+                <stringProp name="Argument.value">1.0.1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/StockBasket/targetCheck</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Target Check API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+              <elementProp name="X-App-Id" elementType="Header">
+                <stringProp name="Header.name">X-App-Id</stringProp>
+                <stringProp name="Header.value">${SBB_APP_ID}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Basket Release Request API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="client_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">client_id</stringProp>
+                <stringProp name="Argument.value">RA30506</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="basket_name" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basket_name</stringProp>
+                <stringProp name="Argument.value">Beginners Basket - Lite</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="basket_version" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basket_version</stringProp>
+                <stringProp name="Argument.value">1.0.2</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="transaction_type" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">transaction_type</stringProp>
+                <stringProp name="Argument.value">broken</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}EDis</stringProp>
+          <stringProp name="HTTPSampler.path">/saveBasketReleaseRequest</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Basket Release Request API" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Basket Index Nifty Details API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="basket_name" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basket_name</stringProp>
+                <stringProp name="Argument.value">Beginners Basket - Lite</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="client_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">client_id</stringProp>
+                <stringProp name="Argument.value">RQ3455677</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/BasketGraph/BasketIndexNiftyDetails</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Basket Index Nifty Details API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+              <elementProp name="X-App-Id" elementType="Header">
+                <stringProp name="Header.name">X-App-Id</stringProp>
+                <stringProp name="Header.value">${SBB_APP_ID}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SIP Performance API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="basketName" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basketName</stringProp>
+                <stringProp name="Argument.value">Beginners Basket - Lite</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="qty" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">qty</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="from_date" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">from_date</stringProp>
+                <stringProp name="Argument.value">2018-06-15</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="to_date" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">to_date</stringProp>
+                <stringProp name="Argument.value">2021-05-17</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="time_period" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">time_period</stringProp>
+                <stringProp name="Argument.value">1y</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="frequency" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">frequency</stringProp>
+                <stringProp name="Argument.value">3-MONTH</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/SIPGraphs/sip_performance</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="SIP Performance API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="preOrderCheck API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="basketName" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basketName</stringProp>
+                <stringProp name="Argument.value">Beginners Basket - Lite</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="basketVersion" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basketVersion</stringProp>
+                <stringProp name="Argument.value">1.0.2</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="qty" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">qty</stringProp>
+                <stringProp name="Argument.value">2</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="type" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">type</stringProp>
+                <stringProp name="Argument.value">sell</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="basketName" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basketName</stringProp>
+                <stringProp name="Argument.value">Domestic Education Basket</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="type" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">type</stringProp>
+                <stringProp name="Argument.value">rebalance</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="orderID" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">orderID</stringProp>
+                <stringProp name="Argument.value">201104RA30506B41</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="type" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">type</stringProp>
+                <stringProp name="Argument.value">broken</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="basketName" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">basketName</stringProp>
+                <stringProp name="Argument.value">Beginners Basket - Lite</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/eDis/preOrderCheck</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="preOrderCheck API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+              <elementProp name="X-App-Id" elementType="Header">
+                <stringProp name="Header.name">X-App-Id</stringProp>
+                <stringProp name="Header.value">${SBB_APP_ID}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GenerateTPIN API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/eDis/generateTPIN</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="GenerateTPIN API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+              <elementProp name="X-App-Id" elementType="Header">
+                <stringProp name="Header.name">X-App-Id</stringProp>
+                <stringProp name="Header.value">${SBB_APP_ID}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="deactivateFcmDeviceToken API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="client_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">client_id</stringProp>
+                <stringProp name="Argument.value">DP32181</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/StockBasket/deactivateFcmDeviceToken</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="deactivateFcmDeviceToken API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="recieveDeviceToken API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="device_token" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">device_token</stringProp>
+                <stringProp name="Argument.value">etuGVB_Yuxk:APA91bFdZf_4RUlmq8li9ORmJGfP6uLKB8Kzv4DzyuMQlOlB4RkeV4EyBoJFBMKtmuMh6szU4lb0xp-G5ible1kTO2I65r05zTw_CDTCuxwFPjIQCjLJjswY48UExfzE8SH6khR3FYhy</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="client_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">client_id</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/StockBasket/recieveDeviceToken</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="recieveDeviceToken API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getMandateStatus API" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="client_id" elementType="HTTPArgument" enabled="true">
+                <stringProp name="Argument.name">client_id</stringProp>
+                <stringProp name="Argument.value">DP17682</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${SBB_URL}API</stringProp>
+          <stringProp name="HTTPSampler.path">/MandateApi/getMandateStatus</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="getMandateStatus API" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="X-API-KEY" elementType="Header">
+                <stringProp name="Header.name">X-API-KEY</stringProp>
+                <stringProp name="Header.value">Samco@123</stringProp>
+              </elementProp>
+              <elementProp name="X-Auth-Token" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${SBB_TOKEN}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="MSF API" enabled="true">
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Http URL/API Test" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">1</intProp>
+        </elementProp>
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <longProp name="ThreadGroup.duration">0</longProp>
+        <longProp name="ThreadGroup.delay">0</longProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+        </CookieManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FetchBaskets" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{&quot;request&quot;:{ &quot;appID&quot;: &quot;a954cab90def711cc9a2dfaf1556fd1c&quot;,
+        &quot;data&quot;:{
+
+&quot;fetchBy&quot;: &quot;All&quot;,
+&quot;filterBy&quot;: {},
+&quot;pageNo&quot;: 1,
+&quot;sort&quot;: {&quot;sortBy&quot;: &quot;&quot;, &quot;orderBy&quot;: &quot;&quot;}
+
+
+        }
+          }
+ }
+
+</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/StockBasket/FetchBaskets/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="FetchBaskets" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ExploreScreenTabs" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{&quot;request&quot;:{ &quot;appID&quot;: &quot;a954cab90def711cc9a2dfaf1556fd1c&quot;,
+        &quot;data&quot;:{
+
+
+
+
+        }
+          }
+ }
+
+</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/StockBasket/CheckExploreTabs/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="ExploreScreenTabs" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SB Login" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">
+{
+   &quot;request&quot;:{
+      &quot;data&quot;:{
+         &quot;userID&quot;:&quot;ra30506&quot;,
+         &quot;password&quot;:&quot;feb@123&quot;,
+         &quot;dob&quot;:&quot;1990&quot;,
+         &quot;apkVersion&quot;:&quot;1.2.8&quot;
+      },
+      &quot;appID&quot;:&quot;0c3e11875c969e85240dfe33c64e6360&quot;
+   }
+}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}Login</stringProp>
+          <stringProp name="HTTPSampler.path">/TwoFactorLogin/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="SB Login" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Payin" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{&quot;request&quot;:{&quot;data&quot;:{},&quot;appID&quot;:&quot;bf2cac98118e8d7e6db0d12e32d5562d&quot;}}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/Payments/Payin/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Payin" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get App Id (INIT)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{
+   &quot;request&quot;:{
+      &quot;data&quot;:{
+         &quot;app&quot;:{
+            &quot;build&quot;:&quot;android-phone&quot;,
+            &quot;channel&quot;:&quot;androidmarket&quot;,
+            &quot;name&quot;:&quot;stock-basket&quot;,
+            &quot;version&quot;:&quot;1.2.8&quot;
+         },
+         &quot;hardware&quot;:{
+
+         },
+         &quot;network&quot;:{
+
+         },
+         &quot;software&quot;:{
+            &quot;osVersion&quot;:&quot;204&quot;
+         }
+      },
+      &quot;appID&quot;:&quot;0&quot;
+   }
+}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}Init</stringProp>
+          <stringProp name="HTTPSampler.path">/Base/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Get App Id (INIT)" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get App Id (CONFIG)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{
+    &quot;request&quot;: {
+        &quot;appID&quot;: &quot;d303c9ede8472f1d92bdbf66ab7776e6&quot;,
+        &quot;data&quot;: {
+            &quot;app&quot;: &quot;0&quot;,
+            &quot;message&quot;: &quot;0&quot;
+        }
+    }
+}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/Config/Base/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Get App Id (CONFIG)" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="watchlist" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{&quot;request&quot;:{ &quot;appID&quot;: &quot;09fed264cd0923475c3a06c33e25b6d6&quot;,
+        &quot;data&quot;:{}
+          }
+ }
+
+</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/WatchList/GetWatchListDetails/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="watchlist" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AvailableAccountBalance" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{
+    &quot;request&quot;: {
+        &quot;appID&quot;: &quot;09fed264cd0923475c3a06c33e25b6d6&quot;,
+        &quot;data&quot;: {}
+    }
+}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/Limits/ViewLimits/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="AvailableAccountBalance" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BrokenOrderAndRebalanceOrderCount" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{&quot;request&quot;:{ &quot;appID&quot;: &quot;09fed264cd0923475c3a06c33e25b6d6&quot;,
+        &quot;data&quot;:{}
+          }
+ }
+
+</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/PendingOrder/FixRebalanceCount/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="BrokenOrderAndRebalanceOrderCount" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DashboardBaskets" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{&quot;request&quot;:{ &quot;appID&quot;: &quot;09fed264cd0923475c3a06c33e25b6d6&quot;,
+        &quot;data&quot;:{
+
+&quot;basketName&quot;: [&quot;R&amp;D Spenders&quot;],
+&quot;groupName&quot;: &quot;group7&quot;
+
+        }
+          }
+ }
+</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path"> /Dashboard/GetDashboardBaskets/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="DashboardBaskets" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Place basket order" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{
+    &quot;request&quot;: {
+        &quot;data&quot;: {
+            &quot;basketName&quot;: &quot;Beginners Basket - Lite&quot;,
+            &quot;qty&quot;: 1,
+            &quot;transactionType&quot;: &quot;BUY&quot;
+        },
+        &quot;appID&quot;: &quot;be30a158179fde313c242982361958bf&quot;
+    }
+}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}Order</stringProp>
+          <stringProp name="HTTPSampler.path">/PlaceBasketOrder/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Place basket order" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Place basket order Copy" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument" enabled="true">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.value">{
+   &quot;request&quot;:{
+      &quot;data&quot;:{},
+      &quot;appID&quot;:&quot;866031c92b1e82c540e54b0866b17a3e&quot;
+   }
+}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.domain">${MSF_API_URL}</stringProp>
+          <stringProp name="HTTPSampler.path">/PendingOrder/FixRebalanceCount/1.0.0</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Place basket order Copy" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
